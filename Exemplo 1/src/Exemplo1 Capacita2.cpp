@@ -1,23 +1,20 @@
 #include <Arduino.h>
 
-// Condicional
-if (idade >= 18) {
-    print("É maior de idade.");
-} else {
-    print("É menor de idade.");
+void setup(){
+  Serial.begin(9600);
+  pinMode(13, OUTPUT);
 }
 
-// Laço
-for (i = 0; i < 5; i++) {
-    print(i); // Imprime 0, 1, 2, 3, 4
+void loop(){
+  for(int i = 0; i < 255; i++){
+     analogWrite(13, i);
+     delay(50);
+     Serial.println(i);
+  }
+  
+  for (int c = 255; c > 0; c--){
+      analogWrite(13,c);
+      delay(50);
+      Serial.println(c);
+  }
 }
-
-// Lista de números
-numeros = [1, 2, 3, 4, 5];
-
-// Dicionário de informações de uma pessoa
-pessoa = {
-    "nome": "Carlos",
-    "cidade": "São Paulo",
-    "idade": 40
-};
